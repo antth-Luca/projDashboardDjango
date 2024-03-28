@@ -34,10 +34,10 @@
 }
 
 .opc-menu:hover {
-    background-color: var(--cor-fundo);
+    color: var(--cor-selecoes);
 }
 
-.atual {
+#atual {
     background-color: var(--cor-fundo);
     color: var(--cor-selecoes);
 }
