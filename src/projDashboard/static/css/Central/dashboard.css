@@ -1,0 +1,48 @@
+/* AMBOS */
+.menu-lateral {
+    background-color: var(--cor-cartoes);
+    border-radius: 0 32px 32px 0;
+}
+
+.cartao-saudacao {
+    background-color: var(--cor-unico);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0 32px 32px 0;
+    left: 0;
+
+    & h5 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & a {
+        text-decoration: none;
+    }
+
+    & a:hover {
+        color: var(--cor-selecoes);
+        text-decoration: underline;
+    }
+}
+
+.opc-menu, .opc-menu:first-child, .opc-menu:last-child{
+    background-color: var(--cor-cartoes);
+    border-radius: 32px 0 0 32px;
+    color: var(--cor-fonte);
+}
+
+.opc-menu:hover {
+    background-color: var(--cor-fundo);
+}
+
+.atual {
+    background-color: var(--cor-fundo);
+    color: var(--cor-selecoes);
+}
+
+/* MOBILE */
+#barra-sup-mobile {
+    background-color: var(--cor-unico);
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Rubik:ital,wght@0,300;1,300&display=swap');
+
+:root {
+    --cor-fundo: #453F78;
+    --cor-unico: #1E1428;
+    --cor-cartoes: #759AAB;
+    --cor-graficos: #89CE94;
+    --cor-selecoes: #A2D729;
+    --cor-fonte: #F0FFFF;
+}
+
+.rubik {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--cor-fonte);
+}
+
+.comforta {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--cor-fonte);
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
