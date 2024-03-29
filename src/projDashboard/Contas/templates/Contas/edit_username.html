@@ -1,3 +1,36 @@
+{% extends 'Bases/base.html' %}
+{% load static %}
+
+{% block meus_estilos %}
+    <link rel="stylesheet" href="{% static 'css/Contas/cadastro-entrada.css' %}">
+{% endblock %}
+{% block titulo %}Editando peril{% endblock %}
+
+{% block restante-cont %}
+    <div class="container d-flex justify-content-center">
+        <form method="post">
+            {% csrf_token %}
+
+            <h6 class="display-6 text-center comforta">Edição</h6>
+            <h6 class="h6 mb-4 rubik">Tchau, tchau {{user.username}}</h6>
+
+            {{ form.errors }}
+
+            <label for="inputUsername" class="form-label comforta">Olá novo...</label>
+            {{ form.username }}
+        
+            <button type="submit" class="btn btn-primary mt-4 comforta">Salvar</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

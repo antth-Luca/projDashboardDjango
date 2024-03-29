@@ -1,4 +1,10 @@
 /* AMBOS */
+@media screen and (min-width: 992px) {
+    main {
+        margin-left: 400px;
+    }
+}
+
 .menu-lateral {
     background-color: var(--cor-cartoes);
     border-radius: 0 32px 32px 0;

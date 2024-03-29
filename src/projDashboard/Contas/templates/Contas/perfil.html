@@ -1,15 +1,17 @@
+{% extends 'Bases/menu-lateral.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de {{ user.username }}</title>
-</head>
-<body>
-    <img src="{% static 'images/perfil-default.svg' %}" alt="Foto de perfil">
-    <h5>{{ user.username }}</h5>
-    <a href="{% url 'EditarPerfil' %}">Editar perfil</a>
-</body>
-</html>
+{% block meus_estilos %}
+    <link rel="stylesheet" href="{% static 'css/Contas/perfil.css' %}">
+{% endblock %}
+{% block titulo %}Perfil de {{ user.username }}{% endblock %}
+
+{% block conteudo %}
+    <div class="d-flex flex-column align-items-center justify-content-center my-5 envelopamento-total">
+        <div class="d-flex flex-column align-items-center bg-primary p-5 rounded">
+            <img src="{% static 'images/perfil-default.svg' %}" alt="Foto de perfil" class="mb-3">
+            <h6 class="display-6 comforta">{{ user.username }}</h6>
+            <a class="btn btn-primary" href="{% url 'EditarPerfil' %}">Editar perfil</a>
+        </div>
+    </div>
+{% endblock %}

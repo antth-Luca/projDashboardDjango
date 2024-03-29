@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrada</title>
-</head>
-<body>
-    <h2>Entrando</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Entrar</button>
-    </form>
-</body>
-</html>
+{% extends 'Bases/base.html' %}
+{% load static %}
+
+{% block meus_estilos %}
+    <link rel="stylesheet" href="{% static 'css/Contas/cadastro-entrada.css' %}">
+{% endblock %}
+{% block titulo %}Entrada{% endblock %}
+
+{% block restante-cont %}
+    <div class="container d-flex justify-content-center">
+        <form method="post">
+            {% csrf_token %}
+
+            <h6 class="display-6 text-center comforta">Entrada</h6>
+            <h6 class="h6 mb-4 rubik">Preencha todos os campos:</h6>
+
+            {{ form.errors }}
+
+            <label for="inputUsername" class="form-label comforta">Nome de utilizador*</label>
+            {{ form.username }}
+
+            <label for="inputSenha" class="form-label mt-3 comforta">Senha*</label>
+            {{ form.password }}
+        
+            <button type="submit" class="btn btn-primary mt-4 comforta">Entrar</button>
+        </form>
+    </div>
+{% endblock %}
+

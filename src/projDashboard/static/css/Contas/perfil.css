@@ -1,0 +1,28 @@
+.envelopamento-total {
+    height: 80vh;
+
+    & div {
+        background-color: var(--cor-unico) !important;
+
+        & img {
+            width: 192px;
+        }
+
+        & a {
+            background-color: var(--cor-fundo);
+            border: none;
+        }
+
+        & a:hover {
+            background-color: var(--cor-fundo);
+            scale: 105%;
+            color: var(--cor-selecoes);
+        }
+
+        & a:active {
+            text-decoration: underline;
+            background-color: var(--cor-fundo) !important;
+            color: var(--cor-selecoes) !important;
+        }
+    }
+}

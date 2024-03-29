@@ -3,8 +3,8 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import redirect, render
-from .forms import PasswordChangeCustomForm, EditUserForm, UserCreationCustomForm
-from django.contrib.auth import update_session_auth_hash
+from .forms import EditUserForm, UserCreationCustomForm
+from datetime import datetime
 
 class CadastroView(generic.CreateView):
     form_class = UserCreationCustomForm
@@ -29,17 +29,12 @@ def EditUserView(request):
     return render(request, 'Contas/edit_username.html', {'form': form})
 
 @login_required
-def TrocSenhaView(request):
-    if request.method == 'POST':
-        form = PasswordChangeCustomForm(request.user, request.POST)
-        if form.is_valid():
-            user = form.save()
-            update_session_auth_hash(request, user)  # Atualiza a sessão do usuário para evitar que ele seja deslogado
-            return redirect(reverse_lazy('Perfil'))
-    else:
-        form = PasswordChangeCustomForm(request.user)
-    return render(request, 'Contas/edit_senha.html', {'form': form})
-
-@login_required
 def VisualPerfilView(request):
-    return render(request, 'Contas/perfil.html', {'user': request.user})
+    hora = datetime.now().hour
+    if 6 <= hora < 12:
+        saudacao = "Bom dia!"
+    elif 12 <= hora < 18:
+        saudacao = "Boa tarde!"
+    else:
+        saudacao = "Boa noite!"
+    return render(request, 'Contas/perfil.html', {'user': request.user, 'saudacao': saudacao})

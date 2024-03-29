@@ -4,14 +4,15 @@ form {
     width: 24% !important;
     background-color: var(--cor-cartoes) !important;
     padding: 50px;
-    color: #000;
-
-    & div:first-child {
-        margin-top: 3rem;
-    }
+    color: var(--cor-fonte);
 
     & div {
         margin-bottom: 1rem;
+    }
+
+    .form-control {
+        box-shadow: none !important;
+        border: none;
     }
 
     & .btn-primary {

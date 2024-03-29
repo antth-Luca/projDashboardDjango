@@ -7,22 +7,23 @@
 {% block titulo %}Cadastro{% endblock %}
 
 {% block restante-cont %}
-    <div class="container-fluid">
-        <form class="mx-auto" method="post" action="{% url 'EditarPerfil' %}">
+    <div class="container d-flex justify-content-center">
+        <form method="post" action="{% url 'Cadastro' %}">
             {% csrf_token %}
 
-            <h4 class="display-6 text-center">Cadastro</h4>
+            <h6 class="display-6 text-center comforta">Cadastro</h6>
+            <h6 class="h6 mb-4 rubik">Preencha todos os campos:</h6>
 
-            <label for="inputUsername" class="form-label">Nome de utilizador</label>
+            <label for="inputUsername" class="form-label comforta">Nome de utilizador*</label>
             {{ form.username }}
 
-            <label for="inputSenha1" class="form-label">Senha</label>
+            <label for="inputSenha1" class="form-label mt-3 comforta">Senha*</label>
             {{ form.password1 }}
 
-            <label for="inputSenha2" class="form-label">Confirme a senha</label>
+            <label for="inputSenha2" class="form-label mt-3 comforta">Confirme a senha*</label>
             {{ form.password2 }}
         
-            <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+            <button type="submit" class="btn btn-primary mt-4 comforta">Cadastrar</button>
         </form>
     </div>
 {% endblock %}
