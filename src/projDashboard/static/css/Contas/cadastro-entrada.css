@@ -1,0 +1,39 @@
+form {
+    border-radius: 20px;
+    margin-top: 150px !important;
+    width: 24% !important;
+    background-color: var(--cor-cartoes) !important;
+    padding: 50px;
+    color: #000;
+
+    & div:first-child {
+        margin-top: 3rem;
+    }
+
+    & div {
+        margin-bottom: 1rem;
+    }
+
+    & .btn-primary {
+        background-color: var(--cor-fundo);
+        border: none;
+    }
+
+    & .btn-primary:hover {
+        background-color: var(--cor-fundo);
+        scale: 105%;
+        color: var(--cor-selecoes);
+    }
+}
+
+@media (max-width: 1600px) {
+    form {
+        width: 40% !important;
+    }
+}
+
+@media (max-width: 900px) {
+    form {
+        width: 100% !important;
+    }
+}

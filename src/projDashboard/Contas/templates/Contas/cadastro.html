@@ -1,0 +1,29 @@
+{% extends 'Bases/base.html' %}
+{% load static %}
+
+{% block meus_estilos %}
+    <link rel="stylesheet" href="{% static 'css/Contas/cadastro-entrada.css' %}">
+{% endblock %}
+{% block titulo %}Cadastro{% endblock %}
+
+{% block restante-cont %}
+    <div class="container-fluid">
+        <form class="mx-auto" method="post" action="{% url 'EditarPerfil' %}">
+            {% csrf_token %}
+
+            <h4 class="display-6 text-center">Cadastro</h4>
+
+            <label for="inputUsername" class="form-label">Nome de utilizador</label>
+            {{ form.username }}
+
+            <label for="inputSenha1" class="form-label">Senha</label>
+            {{ form.password1 }}
+
+            <label for="inputSenha2" class="form-label">Confirme a senha</label>
+            {{ form.password2 }}
+        
+            <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+        </form>
+    </div>
+{% endblock %}
+
