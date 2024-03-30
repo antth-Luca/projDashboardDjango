@@ -84,3 +84,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
         # Retornando todos os dados
         return context
+    
+
+def void_view(request):
+    from django.shortcuts import redirect
+    return redirect(reverse_lazy('Dashboard'))

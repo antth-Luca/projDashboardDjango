@@ -6,80 +6,55 @@
 {% endblock %}
 
 {% block restante-cont %}
-    <!-- MOBILE -->
-        <!-- Barra superior -->
-        <nav class="navbar d-lg-none" id="barra-sup-mobile">
-            <div class="container">
-                <a href="#mn-mobile" class="navbar-brand comforta" data-bs-toggle="offcanvas">
-                    <img src="{% static 'images/icon-folha.svg' %}" alt="Ícone de folha" style="width: 20px;">
-                    Dashboard</a>
-            </div>
-        </nav>
-        <!-- Menu lateral deslizante -->
-        <div class="offcanvas offcanvas-start menu-lateral" id="mn-mobile" tabindex="-1">
-            <div class="offcanvas-header d-flex flex-column position-relative">
-                <button class="btn-close rounded-circle" data-bs-dismiss="offcanvas" style="background-color: var(--cor-fonte);"></button>
-
-                <div class="cartao-saudacao position-absolute" style="top: 44px;">
-                    <h5 class="my-3 ms-3">
-                        <span class="comforta">Olá usuário,</span>
-                        <span class="rubik">{{ saudacao }}</span>
-                    </h5>
-
-                    <a href="{% url 'Perfil' %}" class="align-self-end rubik my-3">
-                        Ver perfil
-                        <img src="{% static 'images/perfil-default.svg' %}" alt="Foto de perfil" class="mx-2"></a>
+    <main>
+        <div class="wrapper me-3">
+            <aside id="sidebar">
+                <div class="d-flex flex-column">
+                    <button class="toggle-btn align-self-start" id="id-toggle-btn" type="button">
+                        <i class="bi bi-arrow-left-square-fill"></i>
+                    </button>
+                    <div class="sidebar-saudacao p-3">
+                        <div class="d-flex flex-column">
+                            <h5 class="align-self-start">
+                                <span class="comforta">Olá {{ user.username }},</span>
+                                <span>{{ saudacao }}</span>
+                            </h5>
+                            <a href="{% url 'Perfil' %}" class="align-self-end mt-3">
+                                Ver perfil
+                                <img src="{% static 'images/perfil-default.svg' %}" alt="Foto de perfil" class="mx-2"></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="offcanvas-body pe-0" style="margin-top: 160px;">
-                <div class="list-group list-group-flush my-3">
-                    <a class="list-group-item opc-menu" id="atual" href="{% url 'Dashboard' %}">
-                        <i class="bi bi-clipboard2-data-fill me-1"></i>
-                        Dashboard</a>
-
-                    <a class="list-group-item opc-menu" href="#">
-                        <i class="bi bi-award-fill me-1"></i>
-                        Créditos</a>
-
-                    <a class="list-group-item" id="btn-sair" href="{% url 'Saida' %}">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="{% url 'Dashboard' %}" class="sidebar-link" id="atual">
+                            <i class="bi bi-clipboard2-data-fill me-1"></i>
+                            <span>Dashboard</span></a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="bi bi-award-fill me-1"></i>
+                            <span>Créditos</span></a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <a href="{% url 'Saida' %}" class="sidebar-link" id="sair">
                         <i class="bi bi-box-arrow-left me-1"></i>
-                        Sair</a>
+                        <span>Sair</span></a>
                 </div>
+            </aside>
+
+            <div class="main p-3">
+                {% block conteudo %}{% endblock %}
             </div>
         </div>
+    </main>
 
-        <!-- DESKTOP -->
-        <div class="offcanvas offcanvas-start show d-none d-lg-flex menu-lateral" tabindex="-1"  data-bs-backdrop="false">
-            <div class="offcanvas-header d-flex flex-column position-relative">
-                <div class="cartao-saudacao position-absolute" style="top: 0;">
-                    <h5 class="my-3 ms-3">
-                        <span class="comforta">Olá {{ user.username }},</span>
-                        <span class="rubik">{{ saudacao }}</span>
-                    </h5>
+    <script>
+        const hamBurger = document.querySelector(".toggle-btn");
 
-                    <a href="{% url 'Perfil' %}" class="align-self-end rubik my-3">
-                        Ver perfil
-                        <img src="{% static 'images/perfil-default.svg' %}" alt="Foto de perfil" class="mx-2"></a>
-                </div>
-            </div>
-            <div class="offcanvas-body pe-0" style="margin-top: 132px;">
-                <div class="list-group list-group-flush my-3">
-                    <a class="list-group-item opc-menu" id="atual" href="{% url 'Dashboard' %}">
-                        <i class="bi bi-clipboard2-data-fill me-1"></i>
-                        Dashboard</a>
-
-                    <a class="list-group-item opc-menu" href="#">
-                        <i class="bi bi-award-fill me-1"></i>
-                        Créditos</a>
-
-                    <a class="list-group-item" id="btn-sair" href="{% url 'Saida' %}">
-                        <i class="bi bi-box-arrow-left me-1"></i>
-                        Sair</a>
-                </div>
-            </div>
-        </div>
-        
-        <main class="p-3 mt-5">
-            {% block conteudo %}{% endblock %}
-        </main>
+        hamBurger.addEventListener("click", function () {
+        document.querySelector("#sidebar").classList.toggle("expand");
+        });
+    </script>
 {% endblock %}

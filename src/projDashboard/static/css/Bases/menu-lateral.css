@@ -1,64 +1,110 @@
-/* AMBOS */
-@media screen and (min-width: 992px) {
-    main {
-        margin-left: 400px;
-    }
+/* Sidebar */
+.wrapper {
+    display: flex;
 }
 
-.menu-lateral {
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
     background-color: var(--cor-cartoes);
-    border-radius: 0 32px 32px 0;
-}
-
-.cartao-saudacao {
-    background-color: var(--cor-unico);
     display: flex;
     flex-direction: column;
-    width: 100%;
     border-radius: 0 32px 32px 0;
-    left: 0;
-
-    & h5 {
-        display: flex;
-        flex-direction: column;
-    }
-
-    & a {
-        text-decoration: none;
-    }
-
-    & a:hover {
-        color: var(--cor-selecoes);
-        text-decoration: underline;
-    }
+}
+/* Abertura da sidebar */
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
 }
 
-.opc-menu, .opc-menu:first-child, .opc-menu:last-child{
-    background-color: var(--cor-cartoes);
-    border-radius: 32px 0 0 32px;
+#sidebar:not(.expand) .sidebar-saudacao,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+#sidebar:not(.expand) .toggle-btn {
+    transform: rotate(180deg);
+}
+
+/* Itens da sidebar */
+/* Botão de abertura */
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+    transition: all .25s ease-in-out;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
     color: var(--cor-fonte);
-    border: none;
+}
+/* Saudação */
+.sidebar-saudacao {
+    margin: auto 0;
+    background-color: var(--cor-unico);
+    border-radius: 0 28px 28px 0;
+
+    & div a {
+        text-decoration: none;
+        color: var(--cor-fonte);
+    }
+
+    & div a:hover {
+        text-decoration: underline;
+        color: var(--cor-selecoes);
+    }
+}
+/* Corpo sidebar */
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+/* Opções de navegação */
+.sidebar-item {
+    list-style: none;
+    position: relative;
 }
 
-.opc-menu:hover {
+a.sidebar-link {
+    text-decoration: none;
+    padding: .625rem 1.625rem;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+    color: var(--cor-fonte);
+    border-radius: 32px 0 0 32px;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
     color: var(--cor-selecoes);
 }
 
-#atual {
+a#atual {
     background-color: var(--cor-fundo);
     color: var(--cor-selecoes);
 }
 
-#btn-sair {
-    background-color: var(--cor-cartoes);
-    color: var(--cor-fonte);
-}
-
-#btn-sair:hover {
+a#sair:hover {
     color: #a52a2a;
+    border-radius: 32px 0 48px 32px;
 }
 
-/* MOBILE */
-#barra-sup-mobile {
-    background-color: var(--cor-unico);
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+/* Preparação do main */
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    color: var(--cor-fonte);
 }

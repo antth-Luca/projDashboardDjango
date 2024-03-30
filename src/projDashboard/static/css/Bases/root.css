@@ -9,14 +9,6 @@
     --cor-fonte: #F0FFFF;
 }
 
-.rubik {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    color: var(--cor-fonte);
-}
-
 .comforta {
     font-family: "Comfortaa", sans-serif;
     font-optical-sizing: auto;
@@ -27,4 +19,9 @@
 
 body {
     background-color: var(--cor-fundo);
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: var(--cor-fonte);
 }
