@@ -28,4 +28,11 @@
 .cartao-nums {
     width: 458px;
     height: 192px;
+
+    & div {
+        width: 64px;
+        min-height: 64px;
+        border-radius: 50%;
+        background-color: var(--cor-graficos);
+    }
 }

@@ -59,10 +59,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for rank, top in top_vendedores %}
+                        {% for rank, top in top_vendedores.items %}
                             <tr>
                                 <th scope="row">{{ rank }}</th>
-                                    {% for k, v in top %}
+                                    {% for k, v in top.items %}
                                         <td>{{ v }}</td>
                                     {% endfor %}
                             </tr>
@@ -84,10 +84,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for rank, top in top_produtos %}
+                        {% for rank, top in top_produtos.items %}
                             <tr>
                                 <th scope="row">{{ rank }}</th>
-                                    {% for k, v in top %}
+                                    {% for k, v in top.items %}
                                         <td>{{ v }}</td>
                                     {% endfor %}
                             </tr>
@@ -105,7 +105,7 @@
         <!-- Fim linhs 5 -->
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 col-md-6 mt-1 cartao cartao-porcent d-flex flex-column justify-content-center align-items-center">
-                <div class="d-flex justify-content-center align-items-center mb-2"><strong>{{ porc_clientes_voltam }}%</strong></div>
+                <div class="d-flex justify-content-center align-items-center mb-2">{{ porc_clientes_voltam }}%</div>
                 <span class="text-center">dos clientes voltam a comprar dentro de 3 meses</span>
             </div>
             <div class="col-12 col-md-6 cartao cartao-porcent d-flex flex-column justify-content-center align-items-center">
@@ -116,18 +116,18 @@
         <!-- Fim linha 6 -->
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
-                <div class="text-center">{{ clientes_cadastrados }}</div>
-                <div class="text-center">clientes cadastrados nesse mês</div>
+                <div class="d-flex justify-content-center align-items-center my-3">{{ clientes_cadastrados }}</div>
+                <span class="text-center">clientes cadastrados nesse mês</span>
             </div>
 
             <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
-                <div class="text-center">{{ clientes_atendidos }}</div>
-                <div class="text-center">clientes atendidos nesse mês</div>
+                <div class="d-flex justify-content-center align-items-center my-3">{{ clientes_atendidos }}</div>
+                <span class="text-center">clientes atendidos nesse mês</span>
             </div>
 
             <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
-                <div class="text-center">{{ clientes_n_atendid }}</div>
-                <div class="text-center">clientes não foram atendidos nesse mês</div>
+                <div class="d-flex justify-content-center align-items-center my-3">{{ clientes_n_atendid }}</div>
+                <span class="text-center">clientes não foram atendidos nesse mês</span>
             </div>
         </div>
         <!-- Fim linha 7 -->
