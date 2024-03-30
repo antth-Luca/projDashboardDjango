@@ -6,8 +6,146 @@
 {% endblock %}
 
 {% block titulo %}
-    Dashboard
+    Dashboard - {{ mes_atual }}
 {% endblock %}
 
 {% block conteudo %}
+    <div class="container-fluid">
+        <div class="row">
+            <p class="h1 text-center">{{ mes_atual }}</p>
+
+        </div>
+        <!-- Fim linha 0 -->
+        <div class="row">
+            <div class="col-12">
+                <p class="h4 mt-1">Resumo do mês:</p>
+            </div>
+        </div>
+        <!-- Fim linha 1 -->
+        <div class="row">
+            <div class="col-4">
+                Total vendas: R$ {{ tot_vendas }}
+            </div>
+
+            <div class="col-4">
+                Total despesas: R$ {{ tot_despesas }}
+            </div>
+
+            <div class="col-4">
+                Total lucro: R$ {{ lucro }}
+            </div>
+        </div>
+        <!-- Fim linha 2 -->
+        <div class="row">
+            <div class="col-12">
+                <p class="h4 mt-5">Faturamento (últimos 12 meses):</p>
+                <canvas id="faturamento"></canvas>
+            </div>
+        </div>
+        <!-- Fim linha 3 -->
+        <div class="row">
+            <div class="col-6">
+                <p class="h4 mt-5">Top 5 vendedores:</p>
+                <table class="table table-sm table-bordered rounded">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rank</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Nº de Vendas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rank, top in top_vendedores %}
+                            <tr>
+                                <th scope="row">{{ rank }}</th>
+                                    {% for k, v in top %}
+                                        <td>{{ v }}</td>
+                                    {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-6">
+                <p class="h4 mt-5">Top 5 produtos:</p>
+                <table class="table table-sm table-bordered rounded">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rank</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Quant. vendida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rank, top in top_produtos %}
+                            <tr>
+                                <th scope="row">{{ rank }}</th>
+                                    {% for k, v in top %}
+                                        <td>{{ v }}</td>
+                                    {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Fim linha 4 -->
+        <div class="row">
+            <p class="h4 mt-5">Situação clientela:</p>
+        </div>
+        <!-- Fim linhs 5 -->
+        <div class="row">
+            <div class="col-6 mt-1">
+                <div>{{ porc_clientes_voltam }}%</div>
+                <span>dos clientes voltam a comprar dentro de 3 meses</span>
+            </div>
+            <div class="col-6">
+                <div>{{ porc_novos_clientes_que_compraram }}%</div>
+                <span>dos novos clientes compraram algo no mesmo mês do cadastro nos últimos 3 meses</span>
+            </div>
+        </div>
+        <!-- Fim linha 6 -->
+        <div class="row">
+            <div class="col-4">
+                <span></span>
+                <span>clientes cadastrados nesse mês</span>
+            </div>
+            <div class="col-4">
+                <span></span>
+                <span>clientes atendidos nesse mês</span>
+            </div>
+            <div class="col-4">
+                <span></span>
+                <span>clientes ainda sem atendimento nesse mês</span>
+            </div>
+        </div>
+        <!-- Fim linha 7 -->
+    </div>
+
+    <div class="d-none" id="dados-faturamento" data-labels="{{ faturamento.labels }}" data-data="{{ faturamento.data }}"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onload = () => {
+            const grafFaturamento = document.getElementById('faturamento').getContext('2d');
+            const labels = JSON.parse(document.getElementById('dados-faturamento').getAttribute('data-labels'));
+            const data = JSON.parse(document.getElementById('dados-faturamento').getAttribute('data-data'));
+            const myChart = new Chart(grafFaturamento, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Faturamento',
+                        data: data,
+                        backgroundColor: '#89CE94',
+                        borderColor: '#89CE94',
+                        borderWidth: 0.2
+                    }],
+                },
+                options: {
+                    responsive: true,
+                },
+            });
+        }
+    </script>
 {% endblock %}

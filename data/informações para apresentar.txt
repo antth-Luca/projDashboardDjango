@@ -1,9 +1,0 @@
-- Top 5 maiores fontes de emissão de CO₂ num pódio por escolha de mundo ou país específico num select (uso de HTMX);
-
-- A média de emissões de CO₂ por pessoa no Brasil + país com maior média + país com menor média;
-
-- Gráfico de barras que mostra a média de emissões de cada país, traçado por uma linha que indica a média das médias;
-
-- Gráfico de barras com duas barras, uma para a emissão de CO₂ global num ano e outra com a temperatura global daquele ano - (https://datahub.io/core/global-temp);
-
-- Índice de desenvolvimento do país e sua emissão de CO₂ - por ano;
