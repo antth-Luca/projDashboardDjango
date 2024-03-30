@@ -75,7 +75,7 @@
                 <p class="h4 mt-5 comforta">
                     <i class="bi bi-trophy-fill"></i>
                     Top 5 produtos:</p>
-                <table class="table table-sm table-bordered rounded">
+                <table class="table table-sm table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Rank</th>
@@ -114,25 +114,23 @@
             </div>
         </div>
         <!-- Fim linha 6 -->
-        <div class="row cartao">
-            <div class="col-12 col-lg-4 border-end border-dark border-2 border-opacity-25">
-                <span>{{ clientes_cadastrados }}</span>
-                <span>clientes cadastrados nesse mês</span>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
+                <div class="text-center">{{ clientes_cadastrados }}</div>
+                <div class="text-center">clientes cadastrados nesse mês</div>
             </div>
 
-            <div class="col-12 col-lg-4 border-end border-dark border-2 border-opacity-25">
-                <span>{{ clientes_atendidos }}</span>
-                <span>clientes atendidos nesse mês</span>
+            <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
+                <div class="text-center">{{ clientes_atendidos }}</div>
+                <div class="text-center">clientes atendidos nesse mês</div>
             </div>
 
-            <div class="col-12 col-lg-4">
-                <span>{{ clientes_n_atendid }}</span>
-                <span>clientes ainda sem atendimento nesse mês</span>
+            <div class="col-12 col-lg-4 cartao cartao-nums d-flex flex-column justify-content-center align-items-center">
+                <div class="text-center">{{ clientes_n_atendid }}</div>
+                <div class="text-center">clientes não foram atendidos nesse mês</div>
             </div>
         </div>
         <!-- Fim linha 7 -->
-        <!-- Teste -->
-        
     </div>
 
     <div class="d-none" id="dados-faturamento" data-labels="{{ faturamento.labels }}" data-data="{{ faturamento.data }}"></div>

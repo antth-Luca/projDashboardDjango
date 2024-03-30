@@ -24,3 +24,8 @@
         background-color: var(--cor-graficos);
     }
 }
+
+.cartao-nums {
+    width: 458px;
+    height: 192px;
+}
