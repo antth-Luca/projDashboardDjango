@@ -82,9 +82,18 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         novos_clientes_compras = Cliente.objects.filter(cadastro_em__gte=three_months_ago, venda__data__month=timezone.now().month).count()
         context['porc_novos_clientes_que_compraram'] = (novos_clientes_compras / total_novos_clientes) * 100 if total_novos_clientes > 0 else 0
 
+        # -> Clientes cadastrados no mês atual
+        context['clientes_cadastrados'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month).count()
+
+        # -> Clientes atendidos no mês atual
+        context['clientes_atendidos'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month, venda__isnull=False).count()
+
+        # -> Clientes sem atendimento no mês atual
+        context['clientes_n_atendid'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month, venda__isnull=True).count()
+
         # Retornando todos os dados
         return context
-    
+
 
 def void_view(request):
     from django.shortcuts import redirect

@@ -1,0 +1,26 @@
+.cartao {
+    background-color: var(--cor-cartoes);
+    border-radius: 16px;
+    padding: 12px;
+    margin: 8px;
+}
+
+.table {
+    & th, td {
+        background-color: var(--cor-cartoes);
+        border: none;
+        color: var(--cor-fonte);
+    }
+}
+
+.cartao-porcent {
+    width: 458px;
+    height: 168px;
+
+    & div {
+        width: 64px;
+        min-height: 64px;
+        border-radius: 50%;
+        background-color: var(--cor-graficos);
+    }
+}
