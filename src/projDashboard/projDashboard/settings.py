@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'Central.apps.CentralConfig',
     'Contas.apps.ContasConfig',
     'RegistrosBD.apps.RegistrosbdConfig',
+    'VisualizacoesBD.apps.VisualizacoesbdConfig',
 ]
 
 MIDDLEWARE = [
