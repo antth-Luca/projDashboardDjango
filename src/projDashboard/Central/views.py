@@ -49,7 +49,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
             labels.append(meses[cont])
         context['faturamento'] = {'data': json.dumps(data), 'labels': json.dumps(labels)}
 
-        # -> Top 5 vendedores  #TODO: Verificar! Não está retornando os 3 resultados que deveria
+        # -> Top 5 vendedores
         dict_tops = {}
         month_start = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         month_end = month_start.replace(month=month_start.month % 12 + 1)
@@ -60,7 +60,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
             cont += 1
         context['top_vendedores'] = dict_tops
 
-        # -> Top 5 produtos  #TODO: Verificar! Não está retornando os 4 resultados que deveria
+        # -> Top 5 produtos
         dict_tops = {}
         month_start = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         month_end = month_start.replace(month=month_start.month % 12 + 1)
@@ -71,22 +71,42 @@ class DashboardView(LoginRequiredMixin, TemplateView):
             cont += 1
         context['top_produtos'] = dict_tops
 
-        # -> (%) de clientes que voltam comprar em 3 meses  #TODO: Adicionar restrição: "total_clientes" e "clientes_recorrentes" devem buscar clientes que compraram até 3 meses atrás
-        total_clientes = Cliente.objects.count()
-        clientes_recorrentes = Cliente.objects.annotate(total_compras=Count('venda')).filter(total_compras__gte=2).count()
-        context['porc_clientes_voltam'] = (clientes_recorrentes / total_clientes) * 100 if total_clientes > 0 else 0
+        # -> (%) de clientes que voltam comprar em 3 meses
+        data_atual = timezone.now()
+        tres_meses_atras = data_atual - timedelta(days=90)
+        total_clientes = Cliente.objects.filter(
+            venda__data__gte=tres_meses_atras,
+            venda__data__lte=data_atual
+        ).distinct().count()
+        clientes_compra_recente = Cliente.objects.filter(
+            venda__data__gte=tres_meses_atras,
+            venda__data__lte=data_atual
+        ).annotate(total_compras=Count('venda')).filter(total_compras__gte=2).count()
+        context['porc_clientes_voltam'] = round((clientes_compra_recente / total_clientes) * 100 if total_clientes > 0 else 0, 1)
 
-        # -> (%) de clientes que se cadastraram e compraram no mesmo mês num período de três meses atrás  #TODO: Adicionar um range de hoje até 3 meses atrás
-        three_months_ago = timezone.now() - timedelta(days=90)
-        total_novos_clientes = Cliente.objects.filter(cadastro_em__gte=three_months_ago).count()
-        novos_clientes_compras = Cliente.objects.filter(cadastro_em__gte=three_months_ago, venda__data__month=timezone.now().month).count()
-        context['porc_novos_clientes_que_compraram'] = (novos_clientes_compras / total_novos_clientes) * 100 if total_novos_clientes > 0 else 0
+        # -> (%) de clientes que se cadastraram e compraram no mesmo mês num período de três meses atrás
+        data_atual = timezone.now()
+        three_months_ago = data_atual - timedelta(days=90)
+        clientes_three_months_ago = Cliente.objects.filter(
+            cadastro_em__gte=three_months_ago,
+            cadastro_em__lte=data_atual
+        ).distinct()
+
+        total_novos_clientes = clientes_three_months_ago.count()  # Contagem correta dos novos clientes
+        novos_clientes_compras = 0
+
+        for cliente in clientes_three_months_ago:
+            # Verifica se existe uma venda para o cliente no mesmo mês e ano do cadastro
+            if Venda.objects.filter(cliente=cliente, data__year=cliente.cadastro_em.year, data__month=cliente.cadastro_em.month).exists():
+                for cadastro in Venda.objects.filter(cliente=cliente, data__year=cliente.cadastro_em.year, data__month=cliente.cadastro_em.month):
+                    novos_clientes_compras += 1
+        context['porc_novos_clientes_que_compraram'] = round((novos_clientes_compras / total_novos_clientes) * 100 if total_novos_clientes > 0 else 0, 1)
 
         # -> Clientes cadastrados no mês atual
         context['clientes_cadastrados'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month).count()
 
-        # -> Clientes atendidos no mês atual  #TODO: Não contar duas vezes o mesmo cliente
-        context['clientes_atendidos'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month, venda__isnull=False).count()
+        # -> Clientes atendidos no mês atual
+        context['clientes_atendidos'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month, venda__isnull=False).distinct().count()
 
         # -> Clientes sem atendimento no mês atual
         context['clientes_n_atendid'] = Cliente.objects.filter(cadastro_em__month=timezone.now().month, venda__isnull=True).count()
