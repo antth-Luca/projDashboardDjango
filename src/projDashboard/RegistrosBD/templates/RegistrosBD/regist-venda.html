@@ -1,0 +1,19 @@
+{% extends 'Bases/base-regists.html' %}
+{% load static %}
+
+{% block titulo %}Nova venda{% endblock %}
+
+{% block tipo_regist %}Venda{% endblock %}
+{% block campos %}
+    <label for="inputVendedor" class="form-label comforta">Vendedor responsável*</label>
+    {{ form.vendedor }}
+
+    <label for="inputCliente" class="form-label comforta">Cliente adquirindo*</label>
+    {{ form.cliente }}
+
+    <label for="inputProduto" class="form-label comforta">Produto adquirido*</label>
+    {{ form.produto }}
+    
+    <label for="inputQuantidade" class="form-label comforta">Quantas unidades?*</label>
+    {{ form.quantidade }}
+{% endblock %}

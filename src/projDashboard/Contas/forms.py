@@ -24,7 +24,7 @@ class AuthenticationCustomForm(AuthenticationForm):
 class EditUserForm(forms.ModelForm):
     username = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Digite seu novo username'}),
-        max_length=150,
+        max_length=150, required=True,
         help_text='150 caracteres ou menos. Letras, dígitos e @/./+/-/_ apenas.'
     )
 

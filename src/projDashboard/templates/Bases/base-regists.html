@@ -1,0 +1,27 @@
+{% extends 'Bases/base.html' %}
+{% load static %}
+
+{% block meus_estilos %}
+    <link rel="stylesheet" href="{% static 'css/Bases/base-regists.css' %}">
+{% endblock %}
+
+{% block restante-cont %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8 col-xl-4 mx-auto">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <h6 class="display-6 text-center comforta">Novo registro</h6>
+                    <h4 class="h4 mt-2 text-center">{% block tipo_regist %}{% endblock %}</h4>
+                    <h6 class="h6 mb-4">Preencha todos os campos:</h6>
+
+                    {% block campos %}
+                    {% endblock %}
+
+                    <button type="submit" class="btn btn-primary mt-4 comforta">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

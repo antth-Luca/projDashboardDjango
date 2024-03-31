@@ -1,0 +1,24 @@
+form {
+    border-radius: 20px;
+    margin-top: 150px !important;
+    width: 100% !important;
+    background-color: var(--cor-cartoes) !important;
+    padding: 50px;
+    color: var(--cor-fonte);
+
+    .form-control {
+        box-shadow: none !important;
+        border: none;
+    }
+
+    & .btn-primary {
+        background-color: var(--cor-fundo);
+        border: none;
+    }
+
+    & .btn-primary:hover {
+        background-color: var(--cor-fundo);
+        scale: 105%;
+        color: var(--cor-selecoes);
+    }
+}

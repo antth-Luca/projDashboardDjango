@@ -1,0 +1,13 @@
+{% extends 'Bases/base-regists.html' %}
+{% load static %}
+
+{% block titulo %}Novo produto{% endblock %}
+
+{% block tipo_regist %}Produto{% endblock %}
+{% block campos %}
+    <label for="inputNome" class="form-label comforta">Nome do produto*</label>
+    {{ form.nome }}
+
+    <label for="inputPreco" class="form-label comforta">Preço do produto*</label>
+    {{ form.preco }}
+{% endblock %}

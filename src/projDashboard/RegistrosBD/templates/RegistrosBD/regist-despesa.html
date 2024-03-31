@@ -1,0 +1,10 @@
+{% extends 'Bases/base-regists.html' %}
+{% load static %}
+
+{% block titulo %}Nova despesa{% endblock %}
+
+{% block tipo_regist %}Despesa{% endblock %}
+{% block campos %}
+    <label for="inputValor" class="form-label comforta">Valor da despesa*</label>
+    {{ form.valor }}
+{% endblock %}
