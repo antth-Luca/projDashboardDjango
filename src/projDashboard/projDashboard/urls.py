@@ -7,4 +7,5 @@ urlpatterns = [
     # Módulos
     path('', include('Central.urls')),
     path('', include('Contas.urls')),
+    path('', include('RegistrosBD.urls')),
 ]

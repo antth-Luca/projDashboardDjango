@@ -85,8 +85,8 @@ a.sidebar-link:hover {
     color: var(--cor-selecoes);
 }
 
-a#atual {
-    background-color: var(--cor-fundo);
+a.atual {
+    background-color: var(--cor-fundo) !important;
     color: var(--cor-selecoes);
 }
 

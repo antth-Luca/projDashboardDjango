@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     # Módulos
     'Central.apps.CentralConfig',
     'Contas.apps.ContasConfig',
+    'RegistrosBD.apps.RegistrosbdConfig',
 ]
 
 MIDDLEWARE = [

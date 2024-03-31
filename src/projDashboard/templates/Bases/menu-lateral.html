@@ -27,31 +27,55 @@
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="{% url 'Dashboard' %}" class="sidebar-link" id="atual">
+                        <a href="{% url 'Dashboard' %}" class="sidebar-link" id="opc-dashboard">
                             <i class="bi bi-clipboard2-data-fill me-1"></i>
                             <span>Dashboard</span></a>
                     </li>
+                    <hr>
                     <!-- Registros -->
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="#" class="sidebar-link" id="opc-reg-cliente">
                             <i class="bi bi-person-fill-add"></i>
                             <span>Registrar cliente</span></a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="#" class="sidebar-link" id="opc-reg-produto">
                             <i class="bi bi-plus-square-fill"></i>
                             <span>Registrar produto</span></a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="#" class="sidebar-link" id="opc-reg-venda">
                             <i class="bi bi-cart-plus-fill"></i>
                             <span>Registrar venda</span></a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="#" class="sidebar-link" id="opc-reg-despesa">
                             <i class="bi bi-cash-coin"></i>
                             <span>Registrar despesa</span></a>
                     </li>
+                    <hr>
+                    <!-- Visualizações -->
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="opc-vis-cliente">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Visualizar clientes</span></a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="opc-vis-produto">
+                            <i class="bi bi-filter-square-fill"></i>
+                            <span>Visualizar produtos</span></a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="opc-vis-venda">
+                            <i class="bi bi-cart-check-fill"></i>
+                            <span>Visualizar vendas</span></a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="opc-vis-despesa">
+                            <i class="bi bi-wallet2"></i>
+                            <span>Visualizar despesas</span></a>
+                    </li>
+                    <hr>
                     <!-- Logout -->
                     <li class="sidebar-item">
                         <a href="{% url 'Saida' %}" class="sidebar-link" id="sair">

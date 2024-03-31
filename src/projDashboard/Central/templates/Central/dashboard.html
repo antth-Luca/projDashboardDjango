@@ -50,7 +50,7 @@
                 <p class="h4 mt-5 comforta">
                     <i class="bi bi-trophy-fill"></i>
                     Top 5 vendedores:</p>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Rank</th>
@@ -75,7 +75,7 @@
                 <p class="h4 mt-5 comforta">
                     <i class="bi bi-trophy-fill"></i>
                     Top 5 produtos:</p>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Rank</th>
@@ -137,6 +137,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         window.onload = () => {
+            document.getElementById('opc-dashboard').classList.add('atual');
+
             const grafFaturamento = document.getElementById('faturamento').getContext('2d');
             const labels = JSON.parse(document.getElementById('dados-faturamento').getAttribute('data-labels'));
             const data = JSON.parse(document.getElementById('dados-faturamento').getAttribute('data-data'));
