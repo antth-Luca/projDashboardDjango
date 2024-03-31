@@ -6,12 +6,30 @@
 {% endblock %}
 
 {% block conteudo %}
-    <div class="list-group">
-        {% for cliente in clientes %}
-            <table class="table">
-                
-            </table>
-        {% endfor %}
+    <div class="container-fluid">
+            <div class="col-12 col-lg-8 mx-auto">
+                <p class="h4 mt-5 comforta">
+                    <i class="bi bi-person-lines-fill"></i>
+                    Clientes cadastrados:</p>
+                <table class="table table-sm table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for n, cliente in clientes.items %}
+                            <tr>
+                                <th scope="row">{{ n }}</th>
+                                    {% for k, v in cliente.items %}
+                                        <td>{{ v }}</td>
+                                    {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
     </div>
 {% endblock %}
 
