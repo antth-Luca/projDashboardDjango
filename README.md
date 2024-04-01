@@ -21,3 +21,8 @@ Projeto Django em contexto de lojas com registro, visualização dos registros e
 - Bootstrap 5: Framework front-end;
 - Bootstrap icons: Todos os ícones da aplicação;
 - Chat.js: Para a geração do gráfico;
+
+<h3>Datas</h3>
+
+- Início: 27/03/2024
+- Término: 31/03/2024
