@@ -42,7 +42,7 @@ def regist_venda_view(request):
         else:
             print(form.errors)
     else:
-        form = RegistProdutoForm()
+        form = RegistVendaForm()
     return render(request, 'RegistrosBD/regist-venda.html', {'form': form})
 
 @login_required

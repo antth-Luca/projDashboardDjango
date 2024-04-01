@@ -52,8 +52,6 @@ class RegistVendaForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        clientes = Cliente.objects.all()
-        produtos = Produto.objects.all()
         self.fields['vendedor'].choices = [('', 'Escolha o vendedor')] + [(v.nome, v.nome) for v in Vendedor.objects.all()]
 
         self.fields['cliente'].choices = [('', 'Escolha o cliente')] + [(c.nome, c.nome) for c in Cliente.objects.all()]

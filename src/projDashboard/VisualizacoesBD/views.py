@@ -40,5 +40,4 @@ def visual_despesas_view(request):
     for despesa in despesas:
         dict_despesas[cont] = despesa
         cont += 1
-    print(dict_despesas)
     return render(request, 'VisualizacoesBD/visual-despesas.html', {'dados': dict_despesas})
