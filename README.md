@@ -15,6 +15,12 @@ Projeto Django em contexto de lojas com registro, visualização dos registros e
 - Clientes que foram atendidos no mês atual;
 - Clientes sem atendimento no mês atual;
 
+<hr>
+
+<img src="https://github.com/antth-Luca/projDashboardDjango/blob/main/tela-dashboard.png" alt="Tela do dashboard">
+
+<hr>
+
 <h3>Componentes usados</h3>
 
 - Django: Framework back-end;
