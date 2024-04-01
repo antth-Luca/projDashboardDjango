@@ -1,16 +1,16 @@
 {% extends 'Bases/base-visuals.html' %}
 {% load static %}
 
-{% block titulo %}Lista de clientes{% endblock %}
+{% block titulo %}Lista de despesas{% endblock %}
 
-{% block url_regist %}{% url 'RegistCliente' %}{% endblock %}
+{% block url_regist %}{% url 'RegistDespesa' %}{% endblock %}
 {% block cabecalho_table %}
-    <i class="bi bi-person-lines-fill"></i>
-    Clientes cadastrados:
+    <i class="bi bi-wallet2"></i>
+    Despesas cadastradas:
 {% endblock %}
 {% block colunas %}
     <th scope="col">Nº</th>
-    <th scope="col">Nome</th>
+    <th scope="col">Despesa</th>
 {% endblock %}
 {% block tratam_dados %}
     <th scope="row">{{ n }}</th>
@@ -18,7 +18,7 @@
 
     <script>
         window.onload = () => {
-            document.getElementById('opc-vis-cliente').classList.add('atual');
+            document.getElementById('opc-vis-despesa').classList.add('atual');
         }
     </script>
 {% endblock %}

@@ -1,0 +1,23 @@
+.fundo {
+    background-color: var(--cor-cartoes);
+    border-radius: 32px;
+}
+
+.table {
+    & th, td {
+        background-color: var(--cor-cartoes);
+        border: none;
+        color: var(--cor-fonte);
+    }
+}
+
+.btn-primary {
+    background-color: var(--cor-fundo);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-fundo);
+    scale: 105%;
+    color: var(--cor-selecoes);
+}

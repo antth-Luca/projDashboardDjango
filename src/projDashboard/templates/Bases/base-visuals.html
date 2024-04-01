@@ -7,30 +7,25 @@
 
 {% block conteudo %}
     <div class="container-fluid">
-            <div class="col-12 col-lg-8 mx-auto">
-                <p class="h4 mt-5 comforta">
-                    <i class="bi bi-person-lines-fill"></i>
-                    Clientes cadastrados:</p>
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-auto fundo p-3 d-flex flex-column">
+                <a href="{% block url_regist %}{% endblock %}" class="btn btn-primary align-self-end me-3 mt-3">Novo registro</a>
+                <p class="h4 mt-5 comforta">{% block cabecalho_table %}{% endblock %}</p>
                 <table class="table table-sm table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Nº</th>
-                            <th scope="col">Nome</th>
+                            {% block colunas %}{% endblock %}
                         </tr>
                     </thead>
                     <tbody>
-                        {% for n, cliente in clientes.items %}
+                        {% for n, dado in dados.items %}
                             <tr>
-                                <th scope="row">{{ n }}</th>
-                                    {% for k, v in cliente.items %}
-                                        <td>{{ v }}</td>
-                                    {% endfor %}
+                                {% block tratam_dados %}{% endblock %}
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
+        </div>
     </div>
 {% endblock %}
-
-<!-- TODO: Adicionar JS aos templates que herdam de "menu-lateral.html" que adicione a classe atual a opção que está ativa -->

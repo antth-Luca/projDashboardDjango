@@ -31,7 +31,13 @@ class Venda(models.Model):
     total = models.FloatField()
     data = models.DateTimeField(default=datetime.now())
 
+    def __str__(self):
+        return f'{self.vendedor} vendeu {self.produto} em um total de R$ {self.total} para {self.cliente} em {f"{self.data.day}/{self.data.month}/{self.data.year}"}'
+
 
 class Despesa(models.Model):
     valor = models.FloatField()
     data = models.DateTimeField(default=datetime.now())
+
+    def __str__(self):
+        return f'Houve uma despesa de R$ {self.valor} em {f"{self.data.day}/{self.data.month}/{self.data.year}"}'

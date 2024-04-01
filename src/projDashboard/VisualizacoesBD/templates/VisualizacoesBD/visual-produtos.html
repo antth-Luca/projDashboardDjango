@@ -1,12 +1,12 @@
 {% extends 'Bases/base-visuals.html' %}
 {% load static %}
 
-{% block titulo %}Lista de clientes{% endblock %}
+{% block titulo %}Lista de produtos{% endblock %}
 
-{% block url_regist %}{% url 'RegistCliente' %}{% endblock %}
+{% block url_regist %}{% url 'RegistProduto' %}{% endblock %}
 {% block cabecalho_table %}
-    <i class="bi bi-person-lines-fill"></i>
-    Clientes cadastrados:
+    <i class="bi bi-filter-square-fill"></i>
+    Produtos cadastrados:
 {% endblock %}
 {% block colunas %}
     <th scope="col">Nº</th>
@@ -18,7 +18,7 @@
 
     <script>
         window.onload = () => {
-            document.getElementById('opc-vis-cliente').classList.add('atual');
+            document.getElementById('opc-vis-produto').classList.add('atual');
         }
     </script>
 {% endblock %}
