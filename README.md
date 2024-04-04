@@ -1,7 +1,7 @@
 <h1>Projeto: Dashboard com Django</h1>
 
 <h3>Sobre</h3>
-Projeto Django em contexto de lojas com registro, visualização dos registros e exibição de dashboard com as seguintes informações:
+Projeto Django em contexto de lojas com registro, visualização dos registros e exibição de <strong>dashboard</strong> com as seguintes informações:
 
 - Total de vendas no mês;
 - Total de despesas no mês;
